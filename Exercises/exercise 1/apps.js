@@ -2,31 +2,33 @@
 var tempInput = prompt("What degree is it?");
 
 function farToCel (farTemp) {
-  celTemp = floor((farTemp - 32) * (5/9));
+  celTemp = Math.floor((farTemp - 32) * (5/9));
   console.log(celTemp);
 
   if (celTemp <= 10) {
     console.log("The current temperature is " + celTemp + " degrees Celcius. It's cold outside.");
-  } else if (10 < celTemp >= 25) {
+  } else if (celTemp > 10 && celTemp <= 25) {
     console.log("The current temperature is " + celTemp + " degrees Celcius. It's fair outside.");
   } else if (celTemp > 25) {
     console.log("The current temperature is " + celTemp + " degrees Celcius. It's hot outside.");
   }
-};
+}
+
+farToCel(tempInput);
 
 //Pt. Two
-var numbers[];
+var addNumbers = [123, 4, 23, 1, 10];
 var sum;
 
-function sum(arr) {
+function sumNums(arr) {
 
   for (var i = 0; i < arry.length; i++) {
     sum += arr[i];
   }
 
-  console.log(sum);
-
 }
+
+sum(addNumbers);
 
 //Pt. Three
 var bigNumbers[];
