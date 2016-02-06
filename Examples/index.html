@@ -1,0 +1,43 @@
+angular - 1.4.8
+
+use orderBy filter
+
+could use variable for orderBy instead so that when you click on something, orderBy variable changes and it sorts by name / population
+
+| orderBy:base.sort:base.direction
+
+<!DOCTYPE htnl>
+<html>
+  <head>
+  </head>
+  <body ng-app="myApp">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <input type="text" ng-model="terms" class="form-control" style="fload: right" placeholder="Search" />
+          <li><a href="#">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" ng-controller="BaseController as base">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th ng-click="base.setSort('country')">Country    </th>
+                <th ng-click="base.setSort('population')">Population</th>
+              </tr>
+            </thead>
+          </tbody>
+
+
+        <tr ng-repeat="country in base.countries | filter:terms | orderBy:base.sort:base.direction"> //filtering by search
+          <td>{{country.name}}</td>
+          <td>{{country.population}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

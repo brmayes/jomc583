@@ -1,0 +1,15 @@
+<tr ng-repeat="player in base.players | orderBy:base.sort:base.reverse | filter:searchTerm">
+  <!-- <td class="name" ng-click="base.playerInfo('name')">{{ player.first }} {{ player.last}}</td> -->
+  <td class="name" ng-click="base.moreInfo(player.last)">{{ player.first }} {{ player.last}}</td>
+  <td>{{ player.position }}</td>
+  <td>{{ player.year }}</td>
+  <td>{{ player.games }}</td>
+  <td>{{ player.minutes }}</td>
+  <td>{{ player.assists }}</td>
+  <td>{{ player.twoPoints }}</td>
+  <td>{{ player.twoPointsAttempted }}</td>
+  <td>{{ player.threePoints }}</td>
+  <td>{{ player.threePointsAttempted }}</td>
+  <td>{{ player.freeThrows }}</td>
+  <td>{{ player.freeThrowsAttempted }}</td>
+</tr>
