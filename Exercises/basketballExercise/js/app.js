@@ -8,7 +8,7 @@
       this.players = data;
       this.sort = "last";
       this.reverse = false;
-      this.showPlayerDetails = false;
+      this.showPlayerDetails = true;
       this.playerLast = "";
 
       // Sorting function
@@ -25,26 +25,33 @@
       // Show and hide functions
       this.moreInfo = function(playerLastName){
           //toggles player details
-          this.showPlayerDetails = !this.showPlayerDetails;
+          //this.showPlayerDetails = !this.showPlayerDetails;
+
           this.playerLast = playerLastName;
-          console.log(playerLastName);
 
           for (var i = 0; i < this.players.length; i++) {
             // console.log(i);
-            if (playerLastName == this.players.last) {
-              console.log(this.players.first);
+            if (playerLastName == this.players[i].last) {
+              this.currentPlayer = this.players[i];
+              var playerInfo = "";
+
+              var shootingPercent = Math.round(((this.players[i].twoPoints + this.players[i].threePoints + this.players[i].freeThrows)/(this.players[i].twoPointsAttempted + this.players[i].threePointsAttempted + this.players[i].freeThrowsAttempted))*100);
+
+              if (this.players[i].images[0] !== undefined) {
+
+                playerInfo += '<img src="' + this.players[i].images[0] + '" width="60%"><br />';
+
+              }
+
+              playerInfo += '<h3>' + this.players[i].first + ' ' + this.players[i].last + ', ' + this.players[i].position + '</h3>';
+              playerInfo += '<p>Shooting Percentage: ' + shootingPercent + '%</p>';
+
+              document.getElementById("playerInfo").innerHTML = playerInfo;
             }
 
           }
 
       }
-
-      // this.shootingPercentage = function() {
-      //
-      //   var shootingPercent = (this.players.twoPoints + this.players.threePoints + this.players.freeThrows)/(this.players.twoPointsAttempted + this.players.threePointsAttempted + this.players.freeThrowsAttempted);
-      //   console.log(shootingPercent + "%");
-      //
-      // }
 
   });
 

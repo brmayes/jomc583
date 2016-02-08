@@ -19,3 +19,7 @@ td.name {
 .tableHeadTR {
   border: 1px solid black;
 }
+
+.sidebar {
+  width: 300px;
+}

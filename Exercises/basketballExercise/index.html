@@ -62,16 +62,13 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-md-3">
-              <!-- <div ng-show="base.showPlayerDetails">
-                <h3>More information on {{ base.players.last }}</h3>
-                <p>
-                  hi
-                </p>
-              </div> -->
-              <div ng-show="base.showPlayerDetails">
-                <h4>hello</h4>
-                <img ng-src="{{ base.players.images[0] }}" width="200px" height="auto" />
+            <div class="col-md-3 sidebar">
+              <p>
+                Click on a player to show shooting percentage.
+              </p>
+              <div ng-show="base.showPlayerDetails" id="playerInfo">
+
+                <!-- <img ng-src="{{ base.players.images[0] }}" width="200px" height="auto" /> -->
               </div>
             </div>
           </div>
