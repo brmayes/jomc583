@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <!-- angular -->
+        <script type="text/javascript" src="js/angular.js"></script>
+
+        <!-- script -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/players.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body ng-controller="BaseController as base">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <table>
+                <thead>
+                  <tr class="tableHeadTR">
+                    <td colspan="9" class="tableHeadTD">2015 - 2016 UNC Men's Basketball</td>
+                    <td colspan="3" class="tableHeadTD">
+                      <input type="text" ng-model="searchTerm" class="form-control" style="float: right" placeholder="Search" />
+                    </td>
+                  </tr>
+                </thead>
+                  <tr>
+                    <td class="name" ng-click="base.setSort('name')">Name</td>
+                    <td ng-click="base.setSort('position')">Position</td>
+                    <td ng-click="base.setSort('year')">Year</td>
+                    <td ng-click="base.setSort('games')">Games</td>
+                    <td ng-click="base.setSort('minutes')">Minutes</td>
+                    <td ng-click="base.setSort('assists')">Assists</td>
+                    <td ng-click="base.setSort('twoPoints')">2PT Made</td>
+                    <td ng-click="base.setSort('twoPointsAttempted')">2PT Points<br />Attempted</td>
+                    <td ng-click="base.setSort('threePoints')">3PT Made</td>
+                    <td ng-click="base.setSort('threePointsAttempted')">3PT Attempted</td>
+                    <td ng-click="base.setSort('freeThrows')">FT Made</td>
+                    <td ng-click="base.setSort('freeThrowsAttempted')">FT Attempted</td>
+                  </tr>
+                <tbody ng-contoller="PlayersController as playersCtlr">
+                  <tr ng-repeat="player in playersCtlr.players | orderBy:playersCtlr.sort:playersCtlr.reverse | filter:searchTerm">
+                    <td class="name" ng-click="playersCtlr.moreInfo(player.last)">{{ player.first }} {{ player.last}}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.year }}</td>
+                    <td>{{ player.games }}</td>
+                    <td>{{ player.minutes }}</td>
+                    <td>{{ player.assists }}</td>
+                    <td>{{ player.twoPoints }}</td>
+                    <td>{{ player.twoPointsAttempted }}</td>
+                    <td>{{ player.threePoints }}</td>
+                    <td>{{ player.threePointsAttempted }}</td>
+                    <td>{{ player.freeThrows }}</td>
+                    <td>{{ player.freeThrowsAttempted }}</td>
+                    <!-- <td><img ng-src="{{ player.images[0] }}" width="65px" height="auto" /></td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-3 sidebar">
+              <p>
+                Click on a player to show shooting percentage.
+              </p>
+              <div ng-show="base.showPlayerDetails" id="playerInfo">
+
+                <!-- <img ng-src="{{ base.players.images[0] }}" width="200px" height="auto" /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

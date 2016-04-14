@@ -27,7 +27,7 @@
           //toggles player details
           //this.showPlayerDetails = !this.showPlayerDetails;
 
-          this.playerLast = playerLastName;
+          // this.playerLast = playerLastName;
 
           for (var i = 0; i < this.players.length; i++) {
             // console.log(i);
@@ -54,22 +54,6 @@
       }
 
   });
-
-  // app.directive('playerDetails', function(){
-  //   return {
-  //     restrict: 'A',
-  //     templateUrl: 'playerInformation.html',
-  //     controller: function(playerName) {
-  //       // Show and hide functions
-  //       this.moreInfo = function(playerName){
-  //           //toggles player details
-  //           this.showPlayerDetails = !this.showPlayerDetails;
-  //           this.playerLast = playerName;
-  //
-  //       }
-  //     }
-  //   }
-  // });
 
 
   var data = [

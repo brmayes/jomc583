@@ -1,0 +1,37 @@
+text {
+  font-size: 9px;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #999;
+  shape-rendering: crispEdges;
+}
+
+.x.axis text {
+  display: none;
+}
+
+.x.axis .tick {
+  display: none;
+}
+
+.x.axis path {
+  fill: none;
+  stroke: #999;
+  shape-rendering: crispEdges;
+}
+
+.tooltip {
+  position: absolute;
+  background: black;
+  color: #fff;
+  /*display: none;*/
+}
+
+.bar:hover {
+  fill: yellow;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 10px;
+}

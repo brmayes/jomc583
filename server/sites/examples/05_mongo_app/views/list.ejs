@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Spring 2016 Github Directory</title>
+  </head>
+
+  <body>
+    <h1>Spring 2016 Github Directory</h1>
+
+    <% if (users.length > 0) { %>
+      <ul>
+        <% for (var i in users) { %>
+          <li>
+            <%users[i].name %>
+          </li>
+        <% } %>
+      <% } else { %>
+        <p>
+          Sorry, there are no users yet.
+        </p>
+      <% } %>
+      <p>
+        <a href="/new">Create a new user</a>
+      </p>
+
+    </ul>
+  </body>
+</html>

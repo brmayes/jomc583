@@ -1,0 +1,34 @@
+We have learned to create SVG circles using D3.
+We have learned bind data arrays to DOM elements using D3.
+
+Now, use what we have learned now to create a data array and bind it to SVG circles.
+Your data array should contain 3 circle objects.
+Each circle object of your array should contain:
+
+- X Coordinate
+- Y Coordinate
+- Radius
+- Color (Hex)
+
+Hint: You will need to use D3's .attr() to modify the SVG attributes for cx, cy, and r.
+Bonus: Create another SVG array full of rectangle data and repeat.
+
+```javascript
+// hint
+var circles = []; // ????
+var body = d3.select('body');
+
+body.append('svg')
+  .attr('height', 500)
+  .attr('width', 300);
+
+var svg = body.select('svg');
+
+// do stuff
+```
+
+Now, use your data array to append these three separate circles to an SVG.
+
+Finish this up for homework and submit me a link.
+
+Next time we'll learn how to create some basic charts

@@ -1,0 +1,17 @@
+/* General */
+
+body {
+  background-color: black;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}

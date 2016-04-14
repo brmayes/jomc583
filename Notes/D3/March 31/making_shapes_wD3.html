@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Building basic shapes using D3
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+
+<body>
+
+  <svg class="rectangle_holder" width="50" height="50"></svg>
+
+  <svg class="circle_holder" width="50" height="50"></svg>
+
+  <svg class="triangle_holder" width="50" height="50"></svg>
+
+
+  <script id="jsbin-javascript">
+    //  There are two ways to write the code: Using d2.select directly
+    //  on the class of the container OR making an svg variable and using that to append the shapes.
+    
+    d3.select('.rectangle_holder')
+      .append('rect')
+      .attr('class', 'rectangle')
+      .attr('fill', '#ff00ff')
+      .attr('x', 10)
+      .attr('y', 10)
+      .attr('height', 30)
+      .attr('width', 30);
+
+
+    var svg = d3.select('.circle_holder');
+
+    var circle = svg.append('circle')
+      .attr('class', 'circle')
+      .attr('fill', 'green')
+      .attr('cx', 25)
+      .attr('cy', 25)
+      .attr('r', 20);
+
+    var triangle_svg = d3.select('.triangle_holder');
+
+    var triangle = triangle_svg.append('polygon')
+      .attr('class', 'triangle')
+      .attr('points', '0,0 10,10 20,0')
+      .attr('transform', 'scale(2)');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Github Users</title>
+  </head>
+
+  <body>
+    <h1>Github Users for Seth's <%= periods[0].name %> Class</h1>
+
+    <% if (periods[0].users.length > 0) { %>
+    <ul>
+      <% for(var i in periods[0].users) { %>
+        <li>
+          <a href="http://github.com/<%= periods[0].users[i] %>"><%= periods[0].users[i] %></a>
+        </li>
+      <% } %>
+    </ul>
+    <% } else { %>
+      <h3>Sorry, there's no users!</h3>
+    <% } %>
+  </body>
+
+</html>

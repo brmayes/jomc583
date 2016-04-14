@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- angular -->
+        <script type="text/javascript" src="js/angular.js"></script>
+
+        <!-- script -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/players.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+    </head>
+
+    <body ng-app="myApp">
+
+        <div class="container" ng-controller="BaseController as base">
+
+            <ul class="tabs" ng-controller="TabsController as tabCtrl">
+                <li>Everyone</li>
+                <li>Starters</li>
+                <li ng-click="tabCtrl.setActiveTab('bluesteel')">Blue Steel</li>
+            </ul>
+
+            <div class="row" ng-controller="PlayersController as playerCtrl">
+                <div class="col-xs-3" ng-repeat="player in playerCtrl.players">
+                    <h1>{{player.first}} {{player.last}}</h3>
+                    <p><strong>Position:</strong> {{player.position}}</p>
+                    <p><strong>Height:</strong> {{player.height}}</p>
+                    <p><strong>Minutes:</strong> {{player.minutes}}</p>
+                    <p><strong>Two Points:</strong> {{player.twoPointsAttempted}}</p>
+                    <img ng-src="{{player.images[0]}}" />
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

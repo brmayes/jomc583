@@ -1,0 +1,29 @@
+[{
+    "first": "Brice",
+    "last": "Johnson",
+    "position": "F",
+    "height": "6-9",
+    "year": "SR",
+    "images": [
+        "imgs/bjohnson.jpg",
+        "http://img.bleacherreport.net/img/images/photos/003/069/345/hi-res-586176cb4267aeca5d0d1e400905324e_crop_north.jpg?w=630&h=420&q=75"
+    ],
+    "games": 15,
+    "minutes": 384,
+    "fieldGoals": 93,
+    "fieldGoalsAttempted": 150,
+    "twoPoints": 93,
+    "twoPointsAttempted": 150,
+    "threePoints": 0,
+    "threePointsAttempted": 0,
+    "freeThrows": 43,
+    "freeThrowsAttempted": 51,
+    "offensiveRebounds": 33,
+    "defensiveRebounds": 113,
+    "assists": 19,
+    "steals": 13,
+    "blocks": 15,
+    "turnovers": 16,
+    "fouls": 42,
+    "points": 229
+}]

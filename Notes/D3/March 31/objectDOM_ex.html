@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+  Simple example for using D3 to return DOM elements from objects.
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+
+<body>
+
+  <div class="class_list"></div>
+
+  <script id="jsbin-javascript">
+    var mejo = [{
+      first: 'Brittany',
+      last: 'Mayes',
+      food: 'sushi'
+    }, {
+      first: 'Katherine',
+      last: 'Boliek',
+      food: 'cupcakes'
+    }];
+
+    var container = d3.select('.class_list'); //container you want to append to
+
+    container.selectAll('p') //the tag you want to use to print objects
+      .data(mejo)
+      .enter()
+      .append('p')
+      .text(
+        function(d) {
+          return strBuilder(d);
+        }
+      );
+
+
+    function strBuilder(obj) {
+      return obj.first + " " + obj.last + "'s favorite food is " + obj.food + ".";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by brmayes (http://jsbin.com/xuvolu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html ng-app="boxes">
+<head>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+body {
+  background: #fff;
+  font-weight: 200;
+  font-family: "Helvetica Neue";
+}
+
+.ng-dirty.ng-valid {
+  border: 1px solid green;
+}
+
+.ng-dirty.ng-invalid {
+  border: 1px solid red;
+}
+
+form {
+  border: none !important;
+  padding: 10px;
+}
+
+.form-control {
+  margin: 10px 0;
+}
+
+.building {
+  background: #f1f1f1;
+  padding: 5px 10px;
+  border: 1px grey solid;
+  margin-bottom: 10px;
+}
+
+.box {
+  height: 100px;
+  width: 120px;
+  margin: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  text-align: center;
+  color: #fff;
+  display: table;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.box p {
+  padding: 0;
+  margin: 0;
+}
+
+.box:hover {
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+.vert-centered {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.blue {
+  background: #2B84D2;
+  transition: all 1s;
+}
+
+.yellow {
+  background: #FBA922;
+  transition: all 1s;
+}
+
+.green {
+  background: #25A24E;
+  transition: all 1s;
+}
+
+.purple {
+  background: #746196;
+  transition: all 1s;
+}
+
+.teal {
+  background: #237677;
+  transition: all 1s;
+}
+
+.black {
+  background: #070708;
+  transition: all 1s;
+}
+</style>
+</head>
+  
+<body ng-controller="BoxController as boxCtrl">
+  
+   <form name="boxForm" novalidate>
+    
+    <select ng-model="boxCtrl.newBox.buildingID" class="form-control" required>
+      <option value="">Select a building</option>
+      <option ng-repeat="building in boxCtrl.buildings" value="{{$index}}">{{building.name}}</option>
+    </select>
+     
+     <select ng-model="boxCtrl.newBox.color" class="form-control" required>
+      <option value="">Select a color</option>
+      <option ng-repeat="color in boxCtrl.availableColors" value="{{color}}">{{color}}</option>
+    </select>
+    
+    <input ng-model="boxCtrl.newBox.name" class="form-control" type="text" placeholder="Box Name" required />
+     
+    <input ng-model="boxCtrl.newBox.face" class="form-control" type="text" placeholder="Box Face :)" required />
+     
+  </form>
+  
+  <div ng-click="boxForm.$valid && boxCtrl.addBox()" ng-class="['preview', 'box', boxCtrl.newBox.color]">
+      <div class="vert-centered">
+        <p>{{boxCtrl.newBox.name}}</p>
+        <p>{{boxCtrl.newBox.face}}</p>
+      </div>
+  </div>
+  
+  
+  <div ng-repeat="building in boxCtrl.buildings" class="building">
+    
+    <h3>{{building.name}}</h3>
+    <p>{{building.description}}</p>
+    
+    <div ng-repeat="box in building.boxes" ng-class="['box', box.color]">
+      <div class="vert-centered">
+        <p>{{box.name}}</p>
+        <p>{{box.face}}</p>
+      </div>
+  </div>
+  </div>
+  
+  
+
+<script id="jsbin-javascript">
+var app = angular.module('boxes', []);
+
+app.controller('BoxController', function() {
+  
+  this.buildings = data;
+  
+  this.availableColors = [
+    'blue',
+    'yellow',
+    'green',
+    'teal',
+    'purple',
+    'black'                   
+    ];
+  
+  this.newBox =         
+    {
+      buildingID: "",
+      name: "",
+      color: "",
+      face: ""
+    };
+  
+  this.addBox = function() {
+    var buildingIndex = this.newBox.buildingID;
+    
+    this.buildings[buildingIndex].boxes.push({
+      name: this.newBox.name,
+      color: this.newBox.color,
+      face: this.newBox.face
+    });
+    
+    this.reset();
+  };
+  
+  this.reset = function() {
+      this.newBox =         
+    {
+      buildingID: "",
+      name: "",
+      color: "",
+      face: ""
+    };
+  };
+  
+});
+
+  var data = [
+    {
+      name: "Office Building",
+      description: "Where people work",
+      boxes: [
+        {
+          name: "Sad Box",
+          color: "blue",
+          face: ":("
+        },
+        {
+          name: "Happy Box",
+          color: "yellow",
+          face: ":("
+        },
+        {
+          name: "Eh Box",
+          color: "green",
+          face: ":/"
+        }
+      ]
+    },
+        {
+      name: "School Building",
+      description: "Where people learn",
+      boxes: [
+        {
+          name: "Sad Box",
+          color: "black",
+          face: ":("
+        },
+        {
+          name: "Happy Box",
+          color: "purple",
+          face: ":("
+        },
+        {
+          name: "Eh Box",
+          color: "teal",
+          face: ":/"
+        }
+      ]
+    }
+    
+  ];
+</script>
+</body>
+</html>
